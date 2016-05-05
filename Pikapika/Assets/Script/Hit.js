@@ -10,8 +10,8 @@ function Update () {
 
 }
 
- function OnCollisionEnter (hit : Collision)
- {
+ function OnCollisionEnter (hit : Collision){
+ 		print(hit.gameObject.name);
 		if((hit.transform.gameObject.name == "Pokeball")&&((Time.time - lastHitTime)>coolDown))
 		{
 		   //do stuff

@@ -1,8 +1,5 @@
 ﻿#pragma strict
 private var HP: int = 3;
-var image0: GameObject;
-var image1: GameObject;
-var image2: GameObject;
 var panel: GameObject;
 private var image: GameObject[] ;
 

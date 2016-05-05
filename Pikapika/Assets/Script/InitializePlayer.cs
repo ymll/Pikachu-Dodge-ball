@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerMovement : MonoBehaviour {
+public class InitializePlayer : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		this.transform.position = GameObject.Find ("Network Manager").transform.position;

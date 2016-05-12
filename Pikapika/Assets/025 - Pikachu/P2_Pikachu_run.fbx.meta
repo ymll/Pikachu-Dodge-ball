@@ -1,22 +1,28 @@
 fileFormatVersion: 2
-guid: b51e24dbd4bd9430eba601557861f726
-timeCreated: 1455854721
+guid: 0ad5e5793791c4b1fb564a841343ffa4
+timeCreated: 1463070005
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: polygon0
-    100004: polygon1
-    100006: polygon2
-    100008: polygon3
-    100010: polygon4
-    400000: //RootNode
-    400002: polygon0
-    400004: polygon1
-    400006: polygon2
-    400008: polygon3
-    400010: polygon4
+    100000: Camera
+    100002: //RootNode
+    100004: Point
+    100006: Point.001
+    100008: polygon0
+    100010: polygon1
+    100012: polygon2
+    100014: polygon3
+    100016: polygon4
+    400000: Camera
+    400002: //RootNode
+    400004: Point
+    400006: Point.001
+    400008: polygon0
+    400010: polygon1
+    400012: polygon2
+    400014: polygon3
+    400016: polygon4
     2300000: polygon0
     2300002: polygon1
     2300004: polygon2
@@ -27,12 +33,36 @@ ModelImporter:
     3300004: polygon2
     3300006: polygon3
     3300008: polygon4
-    4300000: polygon2
-    4300002: polygon4
+    4300000: polygon4
+    4300002: polygon2
     4300004: polygon0
     4300006: polygon3
     4300008: polygon1
-    7400000: Default Take
+    7400000: polygon4|polygon0Action
+    7400002: polygon4|polygon1Action
+    7400004: polygon4|polygon2Action
+    7400006: polygon4|polygon3Action
+    7400008: polygon4|polygon4Action
+    7400010: polygon2|polygon0Action
+    7400012: polygon2|polygon1Action
+    7400014: polygon2|polygon2Action
+    7400016: polygon2|polygon3Action
+    7400018: polygon2|polygon4Action
+    7400020: polygon0|polygon0Action
+    7400022: polygon0|polygon1Action
+    7400024: polygon0|polygon2Action
+    7400026: polygon0|polygon3Action
+    7400028: polygon0|polygon4Action
+    7400030: polygon3|polygon0Action
+    7400032: polygon3|polygon1Action
+    7400034: polygon3|polygon2Action
+    7400036: polygon3|polygon3Action
+    7400038: polygon3|polygon4Action
+    7400040: polygon1|polygon0Action
+    7400042: polygon1|polygon1Action
+    7400044: polygon1|polygon2Action
+    7400046: polygon1|polygon3Action
+    7400048: polygon1|polygon4Action
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -57,7 +87,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: .200000003
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1

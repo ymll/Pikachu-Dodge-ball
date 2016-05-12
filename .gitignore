@@ -33,6 +33,8 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+*.app
+*.exe
 
 # OS generated
 */.DS_Store

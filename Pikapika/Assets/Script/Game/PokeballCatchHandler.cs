@@ -4,6 +4,8 @@ using System.Collections;
 
 public class PokeballCatchHandler : NetworkBehaviour {
 
+	public bool needPressKeyToCatch;
+
 	private PokeballInfo info;
 
 	// Use this for initialization
@@ -13,8 +15,10 @@ public class PokeballCatchHandler : NetworkBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKey (KeyCode.E) && !info.isCatchingByPlayer && !info.touchingPlayerId.IsEmpty()) {
-			CmdCatchPokeBall ();
+		if (!needPressKeyToCatch || Input.GetKey (KeyCode.E)) {
+			if (!info.isCatchingByPlayer && !info.touchingPlayerId.IsEmpty ()) {
+				CmdCatchPokeBall ();
+			}
 		}
 	}
 

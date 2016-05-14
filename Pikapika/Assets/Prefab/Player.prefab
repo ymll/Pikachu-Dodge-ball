@@ -85,25 +85,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &161550
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 489216}
-  - 33: {fileID: 3349592}
-  - 23: {fileID: 2339346}
-  - 135: {fileID: 13532522}
-  - 114: {fileID: 11424950}
-  m_Layer: 0
-  m_Name: catch
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &192450
 GameObject:
   m_ObjectHideFlags: 0
@@ -113,10 +94,10 @@ GameObject:
   m_Component:
   - 224: {fileID: 22467310}
   - 222: {fileID: 22283256}
-  - 135: {fileID: 13502666}
+  - 135: {fileID: 13539472}
   m_Layer: 0
   m_Name: Pikachu
-  m_TagString: Untagged
+  m_TagString: Pikachu
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -190,18 +171,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 22467310}
   m_RootOrder: 4
---- !u!4 &489216
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 161550}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.57, z: 0.41}
-  m_LocalScale: {x: 5, y: 5, z: 5}
-  m_Children: []
-  m_Father: {fileID: 22467310}
-  m_RootOrder: 5
 --- !u!4 &494766
 Transform:
   m_ObjectHideFlags: 1
@@ -305,32 +274,6 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
---- !u!23 &2339346
-MeshRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 161550}
-  m_Enabled: 0
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
-  m_ProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_MinimumChartSize: 4
@@ -445,13 +388,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 127958}
   m_Mesh: {fileID: 4300004, guid: c33eb7134520b47e49f2793ad7a9a7da, type: 3}
---- !u!33 &3349592
-MeshFilter:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 161550}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!33 &3388802
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -468,17 +404,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a800bd8220cc4b6a8da562be74ecd4c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11424950
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 161550}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a4d57e8dd26a1b478219c62f1b725e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &11434212
@@ -546,7 +471,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 7
   gravity: 10
---- !u!135 &13502666
+--- !u!135 &13539472
 SphereCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -558,18 +483,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 2
   m_Center: {x: 0, y: 2.5, z: 0}
---- !u!135 &13532522
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 161550}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!143 &14368398
 CharacterController:
   m_ObjectHideFlags: 1
@@ -608,7 +521,6 @@ RectTransform:
   - {fileID: 409772}
   - {fileID: 496538}
   - {fileID: 454738}
-  - {fileID: 489216}
   m_Father: {fileID: 494766}
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}

@@ -48,6 +48,9 @@ GameObject:
   - 135: {fileID: 13515936}
   - 114: {fileID: 11493702}
   - 114: {fileID: 11468018}
+  - 114: {fileID: 11485754}
+  - 114: {fileID: 11429066}
+  - 114: {fileID: 11446278}
   m_Layer: 0
   m_Name: Pokeball
   m_TagString: Untagged
@@ -396,6 +399,32 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &11429066
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 137674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c12d99f2f5b648e1b763cd2019153dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11446278
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 137674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90fd6ec506ad5491a8702b48fba32bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCatchingByPlayer: 0
+  touchingPlayer: {fileID: 0}
+  lastPokeballCatchTime: 0
+  lastPokeballThrownTime: 0
 --- !u!114 &11468018
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -416,6 +445,19 @@ MonoBehaviour:
   m_SnapThreshold: 5
   m_InterpolateRotation: 1
   m_InterpolateMovement: 1
+--- !u!114 &11485754
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 137674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26427a98f8e894d7cb1946c3fdd87ca8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minBallHoldingTime: 5
+  maxAttackTime: 5
 --- !u!114 &11493702
 MonoBehaviour:
   m_ObjectHideFlags: 1

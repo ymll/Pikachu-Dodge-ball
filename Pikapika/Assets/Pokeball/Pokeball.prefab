@@ -411,6 +411,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68d7d0ec2669649e9925e52c8524c767, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minBallHoldingTime: 3
+  throwPower: 20
 --- !u!114 &11429066
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -468,7 +470,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26427a98f8e894d7cb1946c3fdd87ca8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minBallHoldingTime: 5
   maxAttackTime: 5
 --- !u!114 &11493702
 MonoBehaviour:

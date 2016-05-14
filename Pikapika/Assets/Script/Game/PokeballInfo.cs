@@ -9,7 +9,9 @@ public class PokeballInfo : NetworkBehaviour {
 
 	public NetworkInstanceId touchingPlayerId;
 
+	[SyncVar]
 	public float lastPokeballCatchTime = Time.time;
 
+	[SyncVar]
 	public float lastPokeballThrownTime = Time.time;
 }

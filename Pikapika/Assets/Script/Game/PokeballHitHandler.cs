@@ -4,8 +4,6 @@ using System.Collections;
 
 public class PokeballHitHandler : NetworkBehaviour {
 
-	public float minBallHoldingTime = 5;
-
 	public float maxAttackTime = 5;
 
 	private PokeballInfo info;
@@ -28,11 +26,6 @@ public class PokeballHitHandler : NetworkBehaviour {
 					break;
 				}
 			}	
-		}
-
-		// Player need to hold the ball for a while before throwing it.
-		if (currentTime - info.lastPokeballCatchTime < minBallHoldingTime) {
-			return;
 		}
 
 		// If no one hold Pokeball for a long time, no one will get hurt when touching it.

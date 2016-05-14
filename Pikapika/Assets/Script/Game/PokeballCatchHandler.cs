@@ -31,5 +31,7 @@ public class PokeballCatchHandler : NetworkBehaviour {
 		gameObject.GetComponent<Rigidbody>().isKinematic = true;
 		gameObject.transform.position = playerTransform.position + playerTransform.forward + playerTransform.up;
 		gameObject.transform.parent = player.transform;
+
+		info.lastPokeballCatchTime = Time.time;
 	}
 }

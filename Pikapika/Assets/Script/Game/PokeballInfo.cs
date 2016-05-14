@@ -7,7 +7,7 @@ public class PokeballInfo : NetworkBehaviour {
 	[SyncVar]
 	public bool isCatchingByPlayer;
 
-	public GameObject touchingPlayer;
+	public NetworkInstanceId touchingPlayerId;
 
 	public float lastPokeballCatchTime = Time.time;
 

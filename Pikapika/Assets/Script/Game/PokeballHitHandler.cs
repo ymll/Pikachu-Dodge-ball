@@ -19,10 +19,11 @@ public class PokeballHitHandler : NetworkBehaviour {
 	void OnCollisionEnter(Collision collision) {
 		float currentTime = Time.time;
 
-		if (info.touchingPlayer == null) {
+		if (info.touchingPlayerId.IsEmpty()) {
 			foreach (ContactPoint contact in collision.contacts) {
 				if (contact.otherCollider.CompareTag ("Pikachu")) {
-					info.touchingPlayer = contact.otherCollider.transform.parent.gameObject;
+					GameObject touchingPlayer = contact.otherCollider.transform.parent.gameObject;
+					info.touchingPlayerId = touchingPlayer.GetComponent<NetworkIdentity> ().netId;
 					Debug.Log ("Touched by a player ");
 					break;
 				}
@@ -44,10 +45,12 @@ public class PokeballHitHandler : NetworkBehaviour {
 
 	[ServerCallback]
 	void OnCollisionExit(Collision collision) {
-		if (info.touchingPlayer != null) {
+		if (!info.touchingPlayerId.IsEmpty()) {
 			foreach (ContactPoint contact in collision.contacts) {
-				if (info.touchingPlayer.Equals(contact.otherCollider.gameObject)) {
-					info.touchingPlayer = null;
+				GameObject contactObject = contact.otherCollider.gameObject;
+				NetworkInstanceId touchingPlayerId = contactObject.GetComponent<NetworkIdentity>().netId;
+				if (info.touchingPlayerId.Equals(touchingPlayerId)) {
+					info.touchingPlayerId = new NetworkInstanceId ();
 					return;
 				}
 			}
@@ -55,7 +58,7 @@ public class PokeballHitHandler : NetworkBehaviour {
 	}
 
 	private void handleHitPlayer() {
-		if (info.touchingPlayer == null) {
+		if (info.touchingPlayerId.IsEmpty()) {
 			return;
 		}
 

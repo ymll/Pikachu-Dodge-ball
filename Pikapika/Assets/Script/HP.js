@@ -1,6 +1,6 @@
 ﻿#pragma strict
 private var HP: int = 3;
-var panel: GameObject;
+private var panel: GameObject;
 private var image: GameObject[] ;
 
 function Start () {
@@ -8,9 +8,6 @@ function Start () {
 }
 
 function Update () {
-	if (Input.GetKeyDown("space")){
-
-    }
 
 }
 function beingHit(){

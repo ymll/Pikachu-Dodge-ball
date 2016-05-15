@@ -22,7 +22,7 @@ public class PokeballHitHandler : NetworkBehaviour {
 				if (contact.otherCollider.CompareTag ("Pikachu")) {
 					GameObject touchingPlayer = contact.otherCollider.transform.parent.gameObject;
 					info.touchingPlayerId = touchingPlayer.GetComponent<NetworkIdentity> ().netId;
-					Debug.Log ("Touched by a player ");
+					Debug.Log ("Touched by player " + info.touchingPlayerId);
 					break;
 				}
 			}	
@@ -44,6 +44,7 @@ public class PokeballHitHandler : NetworkBehaviour {
 				NetworkInstanceId touchingPlayerId = contactObject.GetComponent<NetworkIdentity>().netId;
 				if (info.touchingPlayerId.Equals(touchingPlayerId)) {
 					info.touchingPlayerId = new NetworkInstanceId ();
+					Debug.Log ("Untouched by player " + touchingPlayerId);
 					return;
 				}
 			}

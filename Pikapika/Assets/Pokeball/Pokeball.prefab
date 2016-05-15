@@ -424,7 +424,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c12d99f2f5b648e1b763cd2019153dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  needPressKeyToCatch: 0
+  needPressKeyToCatch: 1
 --- !u!114 &11446278
 MonoBehaviour:
   m_ObjectHideFlags: 1

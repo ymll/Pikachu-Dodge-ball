@@ -15,9 +15,11 @@ public class Hit extends NetworkBehaviour{
 	}
 
 	 function OnCollisionEnter (hit : Collision){
-	 		print(hit.gameObject.name);
-			if((hit.transform.gameObject.name == "Pokeball(Clone)")&&((Time.time - lastHitTime)>coolDown))
-			{
+			if((hit.transform.gameObject.name == "Pokeball(Clone)")&&((Time.time - lastHitTime)>coolDown)){
+				if (!isLocalPlayer)
+				{
+					return;
+				}
 			   //do stuff
 			   transform.GetComponent.<HP>().beingHit();
 			   //HP.beingHit();

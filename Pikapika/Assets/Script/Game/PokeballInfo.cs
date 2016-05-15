@@ -5,6 +5,9 @@ using System.Collections;
 public class PokeballInfo : NetworkBehaviour {
 
 	[SyncVar]
+	public NetworkInstanceId pokeballId;
+
+	[SyncVar]
 	public bool isCatchingByPlayer;
 
 	public NetworkInstanceId touchingPlayerId;
@@ -14,4 +17,9 @@ public class PokeballInfo : NetworkBehaviour {
 
 	[SyncVar]
 	public float lastPokeballThrownTime = Time.time;
+
+	// Use this for initialization
+	void Start () {
+		pokeballId = gameObject.GetComponent<NetworkIdentity> ().netId;
+	}
 }

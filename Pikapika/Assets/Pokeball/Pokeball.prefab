@@ -54,7 +54,7 @@ GameObject:
   - 114: {fileID: 11426606}
   m_Layer: 0
   m_Name: Pokeball
-  m_TagString: Untagged
+  m_TagString: PlayPokeball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -502,7 +502,7 @@ MonoBehaviour:
     i14: 183
     i15: 160
   m_ServerOnly: 0
-  m_LocalPlayerAuthority: 0
+  m_LocalPlayerAuthority: 1
 --- !u!135 &13515936
 SphereCollider:
   m_ObjectHideFlags: 1

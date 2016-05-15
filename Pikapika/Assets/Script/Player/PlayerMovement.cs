@@ -15,6 +15,10 @@ public class PlayerMovement : NetworkBehaviour {
 	// Use this for initialization
 	void Start () {
 		controller = GetComponent<CharacterController> ();
+
+		if (isLocalPlayer) {
+			gameObject.AddComponent<MouseLook> ();
+		}
 	}
 
 	// Update is called once per frame

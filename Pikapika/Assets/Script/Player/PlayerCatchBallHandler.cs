@@ -7,7 +7,7 @@ public class PlayerCatchBallHandler : NetworkBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		if (Input.GetKey (KeyCode.E)) {
+		if (isLocalPlayer && Input.GetKey (KeyCode.E)) {
 			NetworkInstanceId netId = GetComponent<NetworkIdentity> ().netId;
 			CmdCatchPokeball (netId);
 		}
@@ -23,7 +23,7 @@ public class PlayerCatchBallHandler : NetworkBehaviour
 		PokeballInfo info = pokeball.GetComponent<PokeballInfo> ();
 
 		// Ignore if ball has been caught or command comes from player not touching the ball
-		if (info.isCatchingByPlayer || info.touchingPlayerId.Value != netId.Value) {
+		if (info.isCatchingByPlayer || !info.canCatch(netId)) {
 			return;
 		}
 

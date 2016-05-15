@@ -27,12 +27,18 @@ public class PlayerThrowBallHandler : NetworkBehaviour {
 		textObj.text = "";
 	}
 	void Update () {
+
+		if (!isLocalPlayer) {
+			return;
+		}
+
 		if (Input.GetMouseButtonUp (0)) {
 			NetworkInstanceId netId = GetComponent<NetworkIdentity> ().netId;
 			CmdThrowPokeball (netId);
 			print (throwPower);
 			throwPower = MinThrowPower;
 		}
+
 		if (Input.GetMouseButton(0)){
 			if (throwPower<MaxThrowPower)
 				throwPower = throwPower + throwPowerRate;
@@ -49,12 +55,16 @@ public class PlayerThrowBallHandler : NetworkBehaviour {
 	void CmdThrowPokeball(NetworkInstanceId netId) {
 		GameObject player = NetworkServer.FindLocalObject (netId);
 		GameObject pokeball = null;
+
+		// Find if player "owns" the pokeball
 		foreach (Transform child in player.transform) {
 			if (child.CompareTag ("PlayPokeball")) {
 				pokeball = child.gameObject;
 				break;
 			}
 		}
+
+		// Ignore if player do not have the pokeball
 		if (pokeball == null) {
 			return;
 		}
@@ -62,7 +72,7 @@ public class PlayerThrowBallHandler : NetworkBehaviour {
 		PokeballInfo info = pokeball.GetComponent<PokeballInfo> ();
 
 		// Ignore if command comes from player not catching the ball
-		if (!info.isCatchingByPlayer || info.touchingPlayerId.Value != netId.Value) {
+		if (!info.isCatchingByPlayer) {
 			return;
 		}
 
@@ -77,7 +87,6 @@ public class PlayerThrowBallHandler : NetworkBehaviour {
 		info.isCatchingByPlayer = false;
 		info.lastPokeballThrownTime = currentTime;
 
-		info.touchingPlayerId = new NetworkInstanceId();
 		pokeball.GetComponent<Rigidbody>().isKinematic = false;
 		pokeball.transform.parent = null;
 		pokeball.GetComponent<Rigidbody>().AddForce(player.transform.forward * throwPower, ForceMode.Impulse);

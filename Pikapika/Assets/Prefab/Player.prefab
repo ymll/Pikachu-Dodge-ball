@@ -423,7 +423,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minBallHoldingTime: 1
-  throwPower: 20
+  throwPowerRate: 0.25
+  MinThrowPower: 5
+  MaxThrowPower: 30
 --- !u!114 &11421148
 MonoBehaviour:
   m_ObjectHideFlags: 1

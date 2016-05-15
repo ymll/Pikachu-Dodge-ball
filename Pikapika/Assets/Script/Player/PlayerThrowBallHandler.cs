@@ -1,18 +1,47 @@
 ﻿using UnityEngine;
 using UnityEngine.Networking;
 using System.Collections;
+using UnityEngine.UI;
 
 public class PlayerThrowBallHandler : NetworkBehaviour {
 
 	public float minBallHoldingTime = 1;
 
-	public float throwPower = 20;
+	public float throwPowerRate = 0.25f;
+
+	public float MinThrowPower = 5f;
+
+	public float MaxThrowPower = 30f;
+
+	private float throwPower = 5f;
+
+	private GameObject[] textUI;
+
+	private Text textObj;
 
 	// Update is called once per frame
+	void Start(){
+		textUI = GameObject.FindGameObjectsWithTag("powerText");
+		textObj = textUI[0].GetComponent<Text>();
+		print (textObj.text);
+		textObj.text = "";
+	}
 	void Update () {
 		if (Input.GetMouseButtonUp (0)) {
 			NetworkInstanceId netId = GetComponent<NetworkIdentity> ().netId;
 			CmdThrowPokeball (netId);
+			print (throwPower);
+			throwPower = MinThrowPower;
+		}
+		if (Input.GetMouseButton(0)){
+			if (throwPower<MaxThrowPower)
+				throwPower = throwPower + throwPowerRate;
+		}
+
+		int numberOfSquare = ((int)throwPower - (int)MinThrowPower)/3;
+		textObj.text = "";
+		for (int i = 0; i < numberOfSquare; i++) {
+			textObj.text = textObj.text + "■";
 		}
 	}
 

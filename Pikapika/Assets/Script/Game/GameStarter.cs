@@ -59,5 +59,7 @@ public class GameStarter : NetworkBehaviour {
 
 	void DestroyPokeball() {
 		NetworkServer.Destroy (pokeball);
+		GameObject ballMark = GameObject.Find ("BallMark");
+		Destroy (ballMark);
 	}
 }

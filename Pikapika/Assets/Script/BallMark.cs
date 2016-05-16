@@ -16,7 +16,7 @@ public class BallMark : MonoBehaviour {
 			float z = GameObject.Find ("Pokeball(Clone)").transform.position.z + 1;
 			this.transform.position = new Vector3 (x, y, z);
 		} else {
-			Destroy (this);
+			Destroy (this.gameObject);
 		}
 		//this.transform.position = new Vector3(GameInfo.playerList [int.Parse (playerNum) - 1].playerPos.x,GameInfo.playerList [int.Parse (playerNum) - 1].playerPos.y+20,GameInfo.playerList [int.Parse (playerNum) - 1].playerPos.z);
 		//this.transform.position = new Vector3 (this.transform.parent.position.x, this.transform.parent.position.y+20, this.transform.parent.position.z+1);

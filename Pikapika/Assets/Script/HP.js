@@ -37,9 +37,9 @@ function updateUI(HP){
 			yield WaitForSeconds(1);
 			die[0].gameObject.GetComponent.<CanvasGroup>().alpha = 0f;
 			die[1].gameObject.GetComponent.<CanvasGroup>().alpha = 0f;
-			var mark: GameObject;
-			mark = GameObject.Find(this.name + "Mark");
-			Destroy(mark);
+			//var mark: GameObject;
+			//mark = GameObject.Find(this.name + "Mark");
+			//Destroy(mark);
 			GetComponent.<GhostMode>().EnterGhostMode(gameObject);
 			break;
 	}

@@ -30,21 +30,19 @@ public class HP extends NetworkBehaviour {
 		}
 
 		HP = HP - 1;
-		resetPos ();
+		CmdResetPos ();
 	}
 
-	function resetPos(){
+	@Command
+	function CmdResetPos(){
 		var playerList : GameObject[];
 		var numPlayer : int;
-		var startPositions : GameObject;
 
 		playerList = GameObject.FindGameObjectsWithTag ("Player");
 		numPlayer = playerList.Length;
-		startPositions = GameObject.Find ("Start Positions");
 
 		for (var i : int = 0; i < numPlayer; i++) {
-			playerList [i].transform.position = startPositions.transform.GetChild(i).position;
-			playerList [i].transform.rotation = startPositions.transform.GetChild(i).rotation;
+			playerList[i].GetComponent.<HP>().RpcSetPlayerPosition();
 		}
 
 		var pokeball : GameObject = GameObject.FindWithTag ("PlayPokeball");
@@ -69,5 +67,12 @@ public class HP extends NetworkBehaviour {
 
 			GetComponent.<GhostMode>().EnterGhostMode(gameObject);
 		}
+	}
+
+	@ClientRpc
+	public function RpcSetPlayerPosition() {
+		var networkManager : NetworkManager;
+		networkManager = GameObject.Find("Network Manager").GetComponent ("NetworkManager");
+		gameObject.transform.position = networkManager.GetStartPosition().position;
 	}
 }

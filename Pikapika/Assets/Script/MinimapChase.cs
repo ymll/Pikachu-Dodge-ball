@@ -8,6 +8,7 @@ public class MinimapChase : MonoBehaviour {
 		playerNum = this.name.Substring(1,this.name.Length-1);
 		Debug.Log (playerNum);
 		this.transform.rotation = Quaternion.Euler(90, 0, 0);
+		gameObject.layer = 8;
 	}
 	
 	// Update is called once per frame

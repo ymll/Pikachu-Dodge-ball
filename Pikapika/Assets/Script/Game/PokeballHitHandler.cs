@@ -85,6 +85,12 @@ public class PokeballHitHandler : NetworkBehaviour {
 	}
 
 	private void OnCanHurtPlayerChanged(bool canHurtPlayer) {
-		
+		GameObject ballMark = GameObject.Find ("BallMark");
+
+		if (canHurtPlayer) {
+			ballMark.GetComponent<SpriteRenderer> ().color = Color.red;
+		} else {
+			ballMark.GetComponent<SpriteRenderer> ().color = Color.white;
+		}
 	}
 }

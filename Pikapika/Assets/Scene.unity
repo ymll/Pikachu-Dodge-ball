@@ -806,7 +806,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 440612362}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 20.94}
+  m_LocalPosition: {x: 0, y: 0, z: 19}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1444393205}
@@ -1561,6 +1561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97e025371ca744e89ae3fc2c41eb7643, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isGameStarted: 0
   pokeballPrefab: {fileID: 137674, guid: a60264a2f7fd5455bbf4376f73ecb7a0, type: 2}
   pokeballSpawn: {fileID: 1653760841}
 --- !u!114 &906363735

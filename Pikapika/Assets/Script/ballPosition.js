@@ -13,7 +13,7 @@ public class ballPosition extends NetworkBehaviour{
 			return;
 		}
 		pokeball = GameObject.FindGameObjectsWithTag("PlayPokeball");
-		if (pokeball != null){
+		if (pokeball.length>0){
 			viewPos = GetComponent.<Camera>().WorldToViewportPoint(pokeball[0].transform.position);
 			if (viewPos.z < 0){
 				if (viewPos.x < 0){

@@ -4,7 +4,8 @@ using System.Collections;
 
 public class PokeballHitHandler : NetworkBehaviour {
 
-	public float maxAttackTime = 5;
+	[SyncVar (hook="OnCanHurtPlayerChanged")]
+	private bool canHurtPlayer;
 
 	private PokeballInfo info;
 
@@ -24,6 +25,13 @@ public class PokeballHitHandler : NetworkBehaviour {
 		} else {
 			netId = NetworkInstanceId.Invalid;
 			return null;
+		}
+	}
+
+	[ServerCallback]
+	void Update () {
+		if (!canHurtPlayer && info.isCatchingByPlayer) {
+			canHurtPlayer = true;
 		}
 	}
 
@@ -51,14 +59,13 @@ public class PokeballHitHandler : NetworkBehaviour {
 
 	[ServerCallback]
 	void OnCollisionEnter (Collision collision) {
+		if (!canHurtPlayer) {
+			return;
+		}
+
 		float currentTime = Time.time;
 		NetworkInstanceId netId = NetworkInstanceId.Invalid;
 		GameObject player = null;
-
-		// If no one hold Pokeball for a long time, no one will get hurt when touching it.
-		if (currentTime - info.lastPokeballThrownTime >= maxAttackTime) {
-			return;
-		}
 
 		// Find which player is hit
 		foreach (ContactPoint contact in collision.contacts) {
@@ -69,12 +76,15 @@ public class PokeballHitHandler : NetworkBehaviour {
 			}
 		}
 
-		// Ignore if no body hit
+		// If no body hit, pokeball can be touched without losing life
 		if (netId == NetworkInstanceId.Invalid) {
-			return;
+			canHurtPlayer = false;
+		} else {
+			player.SendMessage ("beingHit");
 		}
+	}
 
-		// Decrease HP
-		player.SendMessage ("beingHit");
+	private void OnCanHurtPlayerChanged(bool canHurtPlayer) {
+		
 	}
 }

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class GameStarter : NetworkBehaviour {
 
-	private bool isGameStarted;
+	public bool isGameStarted;
 
 	private int connectedPlayerCount;
 

@@ -10,6 +10,7 @@ TagManager:
   - die
   - powerText
   - arrow
+  - win
   layers:
   - Default
   - TransparentFX

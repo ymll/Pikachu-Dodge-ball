@@ -18,6 +18,9 @@ public class PokeballHitHandler : NetworkBehaviour {
 			GameObject touchingPlayer = collider.transform.parent.gameObject;
 			netId = touchingPlayer.GetComponent<NetworkIdentity> ().netId;
 			return touchingPlayer;
+		} else if (collider.CompareTag("Player")) {
+			netId = collider.gameObject.GetComponent<NetworkIdentity> ().netId;
+			return collider.gameObject;
 		} else {
 			netId = NetworkInstanceId.Invalid;
 			return null;
@@ -72,5 +75,6 @@ public class PokeballHitHandler : NetworkBehaviour {
 		}
 
 		// Decrease HP
+		player.SendMessage ("beingHit");
 	}
 }

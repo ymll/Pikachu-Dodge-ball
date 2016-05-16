@@ -34,8 +34,7 @@ public class PlayerThrowBallHandler : NetworkBehaviour {
 
 		if (Input.GetMouseButtonUp (0)) {
 			NetworkInstanceId netId = GetComponent<NetworkIdentity> ().netId;
-			CmdThrowPokeball (netId);
-			print (throwPower);
+			CmdThrowPokeball (netId, throwPower);
 			throwPower = MinThrowPower;
 		}
 
@@ -52,7 +51,7 @@ public class PlayerThrowBallHandler : NetworkBehaviour {
 	}
 
 	[Command]
-	void CmdThrowPokeball(NetworkInstanceId netId) {
+	void CmdThrowPokeball(NetworkInstanceId netId, float throwPower) {
 		GameObject player = NetworkServer.FindLocalObject (netId);
 		GameObject pokeball = null;
 

@@ -9,6 +9,7 @@ TagManager:
   - ball
   - die
   - powerText
+  - arrow
   layers:
   - Default
   - TransparentFX

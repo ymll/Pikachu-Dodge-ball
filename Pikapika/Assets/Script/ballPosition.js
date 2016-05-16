@@ -13,22 +13,24 @@ public class ballPosition extends NetworkBehaviour{
 			return;
 		}
 		pokeball = GameObject.FindGameObjectsWithTag("PlayPokeball");
-		viewPos = GetComponent.<Camera>().WorldToViewportPoint(pokeball[0].transform.position);
-		if (viewPos.z < 0){
-			if (viewPos.x < 0){
-				//print("target is on the right side!");
-				image[0].gameObject.GetComponent.<CanvasGroup>().alpha = 1f;
-				image[1].gameObject.GetComponent.<CanvasGroup>().alpha = 0f;
+		if (pokeball != null){
+			viewPos = GetComponent.<Camera>().WorldToViewportPoint(pokeball[0].transform.position);
+			if (viewPos.z < 0){
+				if (viewPos.x < 0){
+					//print("target is on the right side!");
+					image[0].gameObject.GetComponent.<CanvasGroup>().alpha = 1f;
+					image[1].gameObject.GetComponent.<CanvasGroup>().alpha = 0f;
+				}
+				else{
+					//print("target is on the left side!");
+					image[0].gameObject.GetComponent.<CanvasGroup>().alpha = 0f;
+					image[1].gameObject.GetComponent.<CanvasGroup>().alpha = 1f;
+				}
 			}
 			else{
-				//print("target is on the left side!");
 				image[0].gameObject.GetComponent.<CanvasGroup>().alpha = 0f;
-				image[1].gameObject.GetComponent.<CanvasGroup>().alpha = 1f;
+				image[1].gameObject.GetComponent.<CanvasGroup>().alpha = 0f;
 			}
-		}
-		else{
-			image[0].gameObject.GetComponent.<CanvasGroup>().alpha = 0f;
-			image[1].gameObject.GetComponent.<CanvasGroup>().alpha = 0f;
 		}
 	}
 }

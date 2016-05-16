@@ -10,6 +10,9 @@ function Start () {
 }
 
 function Update () {
+	if (Input.GetKeyDown ("f"||"F")){
+		beingHit();
+	}
 
 }
 function beingHit(){
@@ -30,8 +33,11 @@ function updateUI(HP){
 			image[2].gameObject.SetActive(false);
 			die[0].gameObject.GetComponent.<CanvasGroup>().alpha = 1f;
 			die[1].gameObject.GetComponent.<CanvasGroup>().alpha = 1f;
-			die[2].gameObject.GetComponent.<CanvasGroup>().alpha = 1f;
-			Destroy(gameObject);
+			//Destroy(gameObject);
+			yield WaitForSeconds(1);
+			die[0].gameObject.GetComponent.<CanvasGroup>().alpha = 0f;
+			die[1].gameObject.GetComponent.<CanvasGroup>().alpha = 0f;
+			GetComponent.<GhostMode>().EnterGhostMode(gameObject);
 			break;
 	}
 }

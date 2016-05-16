@@ -30,6 +30,7 @@ function updateUI(HP){
 			image[2].gameObject.SetActive(false);
 			die[0].gameObject.GetComponent.<CanvasGroup>().alpha = 1f;
 			die[1].gameObject.GetComponent.<CanvasGroup>().alpha = 1f;
+			die[2].gameObject.GetComponent.<CanvasGroup>().alpha = 1f;
 			Destroy(gameObject);
 			break;
 	}

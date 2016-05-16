@@ -50,6 +50,7 @@ GameObject:
   - 114: {fileID: 11468018}
   - 114: {fileID: 11446278}
   - 114: {fileID: 11485754}
+  - 114: {fileID: 11480806}
   m_Layer: 0
   m_Name: Pokeball
   m_TagString: PlayPokeball
@@ -432,6 +433,18 @@ MonoBehaviour:
   m_SnapThreshold: 5
   m_InterpolateRotation: 1
   m_InterpolateMovement: 1
+--- !u!114 &11480806
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 137674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8134cc3a143da1d45bf75eec89123488, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ballMark: {fileID: 159392, guid: d04edca480edea9479da93fce7ab7960, type: 2}
 --- !u!114 &11485754
 MonoBehaviour:
   m_ObjectHideFlags: 1

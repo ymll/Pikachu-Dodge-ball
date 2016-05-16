@@ -26,7 +26,7 @@ public class InitializePlayer : MonoBehaviour {
 		//GameObject mainCam = GameObject.Find ("Main Camera");
 		//mainCam.transform.parent = this.transform;
 		GameInfo.playerList.Add(new PlayerInfo() {playerName=this.name, playerPos=this.transform.position});
-		mark = Instantiate (playerMark, new Vector3(this.transform.position.x,this.transform.position.y+10,this.transform.position.z+1),Quaternion.identity) as GameObject;
+		mark = Instantiate (playerMark, new Vector3(this.transform.position.x,this.transform.position.y+20,this.transform.position.z+1),Quaternion.identity) as GameObject;
 		mark.name = this.name+"Mark" ;
 	}
 	

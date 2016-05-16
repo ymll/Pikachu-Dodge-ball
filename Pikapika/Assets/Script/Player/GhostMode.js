@@ -17,23 +17,40 @@ public class GhostMode extends NetworkBehaviour{
 
 		GetComponent(HP).enabled = false;
 		GetComponent(ballPosition).enabled = false;
-		GetComponent(CharacterController).enabled = false;
-		transform.localScale = new Vector3(0, 0, 0);
+		//GetComponent(CharacterController).enabled = false;
+		//transform.localScale = new Vector3(0, 0, 0);
 		(GetComponent("PlayerThrowBallHandler") as NetworkBehaviour).enabled = false;
 		(GetComponent("PlayerCatchBallHandler") as NetworkBehaviour).enabled = false;
 		//Network.RemoveRPCs(Player);
 		//Network.Destroy(Player);
 		Ref = Player;
-		CmdDestroy(Player);
+		//CmdDestroy(Player);
+
+
+		var child : GameObject;
+		child = GameObject.Find(this.name+"/Pikachu");
+		try{
+			Destroy(child.GetComponent(Collider));
+		//Destroy(child.GetComponent(SphereCollider));
+		}catch(e){
+
+		}
+
+
+		//destroy mark on minimap
+		var Mark : GameObject;
+		Mark = GameObject.Find("M"+this.name);
+		Destroy(Mark);
+
 	}
 
 	@Command
 	public function CmdDestroy(Player: GameObject){
-		Destroy(Player);
+		//Destroy(Player);
 	}
 	public function FixedUpdate() {
 		if (NetworkServer.active) {
-			Network.Destroy(Ref);
+			//Network.Destroy(Ref);
 		}
 	}
 }

@@ -36,16 +36,21 @@ public class HP extends NetworkBehaviour {
 	function resetPos(){
 		var playerList : GameObject[];
 		var numPlayer : int;
+		var startPositions : GameObject;
+
 		playerList = GameObject.FindGameObjectsWithTag ("Player");
 		numPlayer = playerList.Length;
-		if (numPlayer>=1)
-			playerList [0].transform.position = GameObject.Find ("1st player").transform.position;
-		if (numPlayer>=2)
-			playerList [1].transform.position = GameObject.Find ("2nd player").transform.position;
-		if (numPlayer>=3)
-			playerList [2].transform.position = GameObject.Find ("3rd player").transform.position;
-		if (numPlayer>=4)
-			playerList [3].transform.position = GameObject.Find ("4th player").transform.position;
+		startPositions = GameObject.Find ("Start Positions");
+
+		for (var i : int = 0; i < numPlayer; i++) {
+			playerList [i].transform.position = startPositions.transform.GetChild(i).position;
+			playerList [i].transform.rotation = startPositions.transform.GetChild(i).rotation;
+		}
+
+		var pokeball : GameObject = GameObject.FindWithTag ("PlayPokeball");
+		var pokeballSpawn : GameObject = GameObject.Find ("PokeballSpawn");
+		pokeball.transform.position = pokeballSpawn.transform.position;
+		pokeball.transform.rotation = pokeballSpawn.transform.rotation;
 	}
 
 	function updateUI(HP : int){

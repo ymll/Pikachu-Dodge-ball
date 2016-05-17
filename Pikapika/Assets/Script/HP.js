@@ -1,34 +1,78 @@
 ﻿#pragma strict
-private var HP: int = 3;
-var panel: GameObject;
-private var image: GameObject[] ;
 
-function Start () {
-     image = GameObject.FindGameObjectsWithTag("ball");
-}
+public class HP extends NetworkBehaviour {
+	@SyncVar
+	public var HP: int = 3;
+	private var panel: GameObject;
+	private var image: GameObject[] ;
+	private var die: GameObject[] ;
 
-function Update () {
-	if (Input.GetKeyDown("space")){
+	function Start () {
+		if (!isLocalPlayer) {
+			return;
+		}
 
-    }
+		image = GameObject.FindGameObjectsWithTag("ball");
+		die = GameObject.FindGameObjectsWithTag("die");
+	}
 
-}
-function beingHit(){
-    HP = HP - 1;
-	//print(HP);
-	updateUI(HP);
-}
+	function Update () {
+		if (!isLocalPlayer) {
+			return;
+		}
+		if (Input.GetKeyDown("f"||"F")) {
+			beingHit();
+		}
+		updateUI (HP);
+	}
 
-function updateUI(HP){
-	switch(HP){
-		case 2:
-			image[0].gameObject.SetActive(false);
-			break;
-		case 1:
-			image[1].gameObject.SetActive(false);
-			break;
-		case 0:
-			image[2].gameObject.SetActive(false);
-			break;
+	function beingHit(){
+		if (!isServer) {
+			return;
+		}
+
+		HP = HP - 1;
+		CmdResetPos ();
+	}
+
+	@Command
+	function CmdResetPos(){
+		var playerList : GameObject[];
+		var numPlayer : int;
+
+		playerList = GameObject.FindGameObjectsWithTag ("Player");
+		numPlayer = playerList.Length;
+
+		for (var i : int = 0; i < numPlayer; i++) {
+			playerList[i].GetComponent.<HP>().RpcSetPlayerPosition();
+		}
+
+		var pokeball : GameObject = GameObject.FindWithTag ("PlayPokeball");
+		var pokeballSpawn : GameObject = GameObject.Find ("PokeballSpawn");
+		pokeball.transform.position = pokeballSpawn.transform.position;
+		pokeball.transform.rotation = pokeballSpawn.transform.rotation;
+	}
+
+	function updateUI(HP : int){
+		for (var i : int = 0; i < 3; i++) {
+			var visibility = (HP > (2 - i));
+			image[i].GetComponent.<UnityEngine.UI.Image>().enabled = visibility;
+		}
+
+		if (HP == 0) {
+			die[0].gameObject.GetComponent.<CanvasGroup>().alpha = 1f;
+			die[1].gameObject.GetComponent.<CanvasGroup>().alpha = 1f;
+			//Destroy(gameObject);
+			yield WaitForSeconds(1);
+			die[0].gameObject.GetComponent.<CanvasGroup>().alpha = 0f;
+			die[1].gameObject.GetComponent.<CanvasGroup>().alpha = 0f;
+
+			GetComponent.<GhostMode>().EnterGhostMode(gameObject);
+		}
+	}
+
+	@ClientRpc
+	public function RpcSetPlayerPosition() {
+		gameObject.transform.position = NetworkLobbyManager.singleton.GetStartPosition().position;
 	}
 }

@@ -10,7 +10,7 @@ using System.Collections.Generic;
 public class PlayerInfo {
 
 	//public static PlayerInfo instance; 
-	public bool inGame {get; set;}
+	//public bool inGame {get; set;}
 	public string playerName { get; set;}
 	public Vector3 playerPos { get; set;}
 

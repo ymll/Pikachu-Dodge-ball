@@ -10,7 +10,7 @@ public class DetectInCourt : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+		/*
 		tempX = this.transform.position.x;
 		tempZ = this.transform.position.z;
 
@@ -21,5 +21,7 @@ public class DetectInCourt : MonoBehaviour {
 
 			this.transform.position = new Vector3 (tempX,this.transform.position.y,tempZ);
 		}
+		*/
 	}
+
 }

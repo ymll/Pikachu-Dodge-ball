@@ -4,7 +4,36 @@ timeCreated: 1455854721
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: polygon0
+    100004: polygon1
+    100006: polygon2
+    100008: polygon3
+    100010: polygon4
+    400000: //RootNode
+    400002: polygon0
+    400004: polygon1
+    400006: polygon2
+    400008: polygon3
+    400010: polygon4
+    2300000: polygon0
+    2300002: polygon1
+    2300004: polygon2
+    2300006: polygon3
+    2300008: polygon4
+    3300000: polygon0
+    3300002: polygon1
+    3300004: polygon2
+    3300006: polygon3
+    3300008: polygon4
+    4300000: polygon2
+    4300002: polygon4
+    4300004: polygon0
+    4300006: polygon3
+    4300008: polygon1
+    7400000: Default Take
+    9500000: //RootNode
   materials:
     importMaterials: 1
     materialName: 0

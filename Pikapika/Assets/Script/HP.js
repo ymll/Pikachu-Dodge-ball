@@ -20,7 +20,9 @@ public class HP extends NetworkBehaviour {
 		if (!isLocalPlayer) {
 			return;
 		}
-
+		if (Input.GetKeyDown("f"||"F")) {
+			beingHit();
+		}
 		updateUI (HP);
 	}
 

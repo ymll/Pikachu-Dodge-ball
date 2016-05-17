@@ -71,8 +71,6 @@ public class HP extends NetworkBehaviour {
 
 	@ClientRpc
 	public function RpcSetPlayerPosition() {
-		var networkManager : NetworkManager;
-		networkManager = GameObject.Find("Network Manager").GetComponent ("NetworkManager");
-		gameObject.transform.position = networkManager.GetStartPosition().position;
+		gameObject.transform.position = NetworkLobbyManager.singleton.GetStartPosition().position;
 	}
 }
